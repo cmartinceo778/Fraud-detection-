@@ -8,7 +8,8 @@ import plotly.graph_objects as go
 import streamlit as st
 
 ROOT = Path(__file__).parent
-sys.path.insert(0, str(ROOT))
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 from src.analyze import fit_evaluate, load_data, review_metrics
 
 st.set_page_config(page_title="Signal & Shield | Card Fraud Analytics", page_icon="◈", layout="wide")
